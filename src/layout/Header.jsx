@@ -1,8 +1,11 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import CartDetails from "../components/CartDetails";
+import { MovieContext } from "../contexts/allContext";
 
 function Header() {
     const [showCart, setShowCart] = useState(false);
+    // eslint-disable-next-line no-unused-vars
+    const { cartData, setCartData } = useContext(MovieContext);
 
     const handleCartClose = () => {
         setShowCart(false);
@@ -33,6 +36,7 @@ function Header() {
                             onClick={() => setShowCart(true)}
                         >
                             <img src="/assets/shopping-cart.svg" width="24" height="24" alt="" />
+                            {cartData.length > 0 && <span className="absolute -top-2 -right-2 bg-primary text-[10px] text-white font-semibold rounded-full w-5 h-5 flex items-center justify-center">{cartData.length}</span>}
                         </a>
                     </li>
                 </ul>
