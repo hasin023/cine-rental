@@ -1,6 +1,24 @@
 const data = [
     {
         "id": crypto.randomUUID(),
+        "cover": "iron-man.jpg",
+        "title": "Iron Man",
+        "description": "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil. With his new company Stark Industries under threat from enemies both inside and outside the country, Stark dons his suit to take on evil.",
+        "genre": "Action/Adventure/Sci-fi",
+        "rating": 5,
+        "price": 100
+    },
+    {
+        "id": crypto.randomUUID(),
+        "cover": "avatar.jpg",
+        "title": "Avatar",
+        "description": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+        "genre": "Fantasy/Adventure/Sci-fi",
+        "rating": 3,
+        "price": 130
+    },
+    {
+        "id": crypto.randomUUID(),
         "cover": "once-in-ho.jpg",
         "title": "Once Upon a Time... in Hollywood",
         "description": "A faded television actor and his stunt double strive to achieve fame and success in the film industry during the final years of Hollywood's Golden Age in 1969 Los Angeles.",
@@ -35,15 +53,6 @@ const data = [
         "rating": 4,
         "price": 250
     },
-    {
-        "id": crypto.randomUUID(),
-        "cover": "iron-man.png",
-        "title": "Iron Man",
-        "description": "When Branch’s brother, Floyd, is kidnapped for his musical talents by a pair of nefarious pop-star villains, Branch and Poppy embark on a harrowing and emotional journey to reunite the other brothers and rescue Floyd from a fate even worse than pop-culture obscurity.",
-        "genre": "Action/Adventure/Sci-fi",
-        "rating": 5,
-        "price": 100
-    }
 ]
 
 function getAllMovies() {
