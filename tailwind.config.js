@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        Sora: ['Sora', 'sans-serif'],
+      },
       container: {
         center: true,
         padding: "1.25rem",
