@@ -1,6 +1,16 @@
+import { useState } from "react"
+import CartDetails from "../components/CartDetails";
+
 function Header() {
+    const [showCart, setShowCart] = useState(false);
+
+    const handleCartClose = () => {
+        setShowCart(false);
+    }
+
     return (
         <header>
+            {showCart && <CartDetails onClose={handleCartClose} />}
             <nav className="container flex items-center justify-between space-x-10 py-6">
                 <a href="#">
                     <img src="/assets/logo.svg" width="139" height="26" alt="" />
@@ -18,7 +28,10 @@ function Header() {
                         </a>
                     </li>
                     <li>
-                        <a className="bg-primary/20 dark:bg-primary/[7%] rounded-lg backdrop-blur-[2px] p-1 inline-block" href="#">
+                        <a className="bg-primary/20 dark:bg-primary/[7%] rounded-lg backdrop-blur-[2px] p-1 inline-block"
+                            href="#"
+                            onClick={() => setShowCart(true)}
+                        >
                             <img src="/assets/shopping-cart.svg" width="24" height="24" alt="" />
                         </a>
                     </li>
