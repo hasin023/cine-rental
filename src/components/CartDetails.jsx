@@ -4,12 +4,15 @@ import CartItem from "./CartItem";
 import NoCartItem from "./NoCartItem";
 
 function CartDetails({ onClose }) {
-    const { cartData, setCartData } = useContext(MovieContext);
+    const { state, dispatch } = useContext(MovieContext);
 
     const handleMovidRemove = (event, movie) => {
         event.preventDefault()
-        const newCartData = cartData.filter((cartMovie) => cartMovie.id !== movie.id)
-        setCartData(newCartData)
+
+        dispatch({
+            type: 'REMOVE_FROM_CART',
+            payload: { ...movie }
+        })
     }
 
     return (
@@ -26,10 +29,10 @@ function CartDetails({ onClose }) {
                     <div
                         className="space-y-8 lg:space-y-12 max-h-[450px] overflow-auto mb-10 lg:mb-14"
                     >
-                        {cartData.length === 0 ? (
+                        {state.cartData.length === 0 ? (
                             <NoCartItem />
                         ) : (
-                            cartData.map((movie) => (
+                            state.cartData.map((movie) => (
                                 <CartItem key={movie.id} movie={movie} onRemove={handleMovidRemove} />
                             ))
                         )}

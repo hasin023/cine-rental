@@ -6,7 +6,7 @@ import { MovieContext } from "../contexts/allContext"
 function MovieCard({ movie }) {
     const [showModal, setShowModal] = useState(false)
     const [selectedMovie, setSelectedMovie] = useState(null)
-    const { cartData, setCartData } = useContext(MovieContext);
+    const { state, dispatch } = useContext(MovieContext);
 
     const handleMovieSelection = (movie) => {
         setSelectedMovie(movie)
@@ -21,14 +21,17 @@ function MovieCard({ movie }) {
     const handleAddToCart = (event, movie) => {
         event.preventDefault()
 
-        const movieExists = cartData.find((cartMovie) => cartMovie.id === movie.id)
+        const movieExists = state.cartData.find((cartMovie) => cartMovie.id === movie.id)
         if (movieExists) {
             alert('Movie already exists in cart')
             setShowModal(false)
             return
         }
 
-        setCartData([...cartData, movie])
+        dispatch({
+            type: 'ADD_TO_CART',
+            payload: { ...movie }
+        })
         setShowModal(false)
     }
 
