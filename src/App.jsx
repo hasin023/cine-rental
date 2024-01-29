@@ -1,25 +1,17 @@
 import { useState } from "react"
-import MovieList from "./components/MovieList"
-import { MovieContext } from "./contexts/allContext"
-import Footer from "./layout/Footer"
-import Header from "./layout/Header"
-import MainContent from "./layout/MainContent"
-import Sidebar from "./layout/Sidebar"
+import { MovieContext, ThemeContext } from "./contexts/allContext"
+import Page from "./layout/Page"
 
 function App() {
   const [cartData, setCartData] = useState([])
+  const [darkMode, setDarkMode] = useState(true)
 
   return (
-    <div className="dark:bg-body bg-white font-Sora dark:text-white text-dark">
+    <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
       <MovieContext.Provider value={{ cartData, setCartData }}>
-        <Header />
-        <MainContent>
-          <Sidebar />
-          <MovieList />
-        </MainContent>
-        <Footer />
+        <Page />
       </MovieContext.Provider>
-    </div>
+    </ThemeContext.Provider>
   )
 }
 

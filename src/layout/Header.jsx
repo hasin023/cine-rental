@@ -1,11 +1,12 @@
 import { useContext, useState } from "react"
 import CartDetails from "../components/CartDetails";
-import { MovieContext } from "../contexts/allContext";
+import { MovieContext, ThemeContext } from "../contexts/allContext";
 
 function Header() {
     const [showCart, setShowCart] = useState(false);
     // eslint-disable-next-line no-unused-vars
     const { cartData, setCartData } = useContext(MovieContext);
+    const { darkMode, setDarkMode } = useContext(ThemeContext);
 
     const handleCartClose = () => {
         setShowCart(false);
@@ -26,8 +27,8 @@ function Header() {
                         </a>
                     </li>
                     <li>
-                        <a className="bg-primary/20 dark:bg-primary/[7%] rounded-lg backdrop-blur-[2px] p-1 inline-block" href="#">
-                            <img src="/assets/icons/moon.svg" width="24" height="24" alt="" />
+                        <a className="bg-primary/20 dark:bg-primary/[7%] rounded-lg backdrop-blur-[2px] p-1 inline-block" href="#" onClick={() => setDarkMode(!darkMode)}>
+                            <img src={`/assets/icons/${darkMode ? 'sun.svg' : 'moon.svg'}`} width="24" height="24" alt="" />
                         </a>
                     </li>
                     <li>

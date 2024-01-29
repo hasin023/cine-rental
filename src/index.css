@@ -7,8 +7,3 @@
 .dark {
   @apply bg-[#171923] text-white;
 }
-
-.text-dark {
-  --tw-text-opacity: 1;
-  color: rgb(23 25 35 / var(--tw-text-opacity));
-}

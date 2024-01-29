@@ -40,7 +40,7 @@ function MovieCard({ movie }) {
                     <img className="w-full object-cover" src={`/assets/movie-covers/${movie.cover}`} alt={movie.title} />
                 </a>
                 <figcaption className="pt-4">
-                    <h3 className="text-xl mb-1 text-black">{movie.title}</h3>
+                    <h3 className="text-xl mb-1 text-black dark:text-white">{movie.title}</h3>
                     <p className="text-[#575A6E] text-sm mb-2">{movie.genre}</p>
                     <div className="flex items-center space-x-1 mb-5">
                         <MovieRating rating={movie.rating} />
