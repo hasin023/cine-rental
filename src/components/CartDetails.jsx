@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { MovieContext } from "../contexts/allContext"
 import CartItem from "./CartItem";
 import NoCartItem from "./NoCartItem";
+import { toast } from 'react-toastify';
 
 function CartDetails({ onClose }) {
     const { state, dispatch } = useContext(MovieContext);
@@ -13,6 +14,8 @@ function CartDetails({ onClose }) {
             type: 'REMOVE_FROM_CART',
             payload: { ...movie }
         })
+
+        toast.info(`'${movie.title}' removed successfully ✅`)
     }
 
     return (

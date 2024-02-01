@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import MovieRating from "./MovieRating"
 import MovieDetails from "./MovieDetails"
 import { MovieContext } from "../contexts/allContext"
+import { toast } from 'react-toastify';
 
 function MovieCard({ movie }) {
     const [showModal, setShowModal] = useState(false)
@@ -23,7 +24,7 @@ function MovieCard({ movie }) {
 
         const movieExists = state.cartData.find((cartMovie) => cartMovie.id === movie.id)
         if (movieExists) {
-            alert('Movie already exists in cart')
+            toast.error(`${movie.title} already added ❌`)
             setShowModal(false)
             return
         }
@@ -32,6 +33,9 @@ function MovieCard({ movie }) {
             type: 'ADD_TO_CART',
             payload: { ...movie }
         })
+
+        toast.success(`'${movie.title}' added successfully ✅`)
+
         setShowModal(false)
     }
 
